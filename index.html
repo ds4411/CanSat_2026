@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>La Biodiversidad de Móstoles a detalle</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  </head>
+
+  <body>
+    <a-scene background="color: #222">
+
+      <a-assets>
+        <a-asset-item id="museo" src="museo.glb"></a-asset-item>
+        <a-asset-item id="sentinel2" src="sentinel2.glb"></a-asset-item>
+        <a-asset-item id="sentinel3" src="sentinel3.glb"></a-asset-item>
+        <img id="portada" src="portada..jpg">
+        <img id="contexto" src="contexto.jpg">
+        <img id="copernico" src="copernico.jpg">
+        <img id="areas" src="areas.png">
+        <video id="Soto" src="Soto.mp4" autoplay loop crossorigin="anonymous"></video>
+        <video id="Mandela" src="Mandela.mp4" autoplay loop crossorigin="anonymous"></video>
+        <video id="Sinlamina" src="Sinlamina.mp4" autoplay loop crossorigin="anonymous"></video>
+       
+        <video id="ciudad" src="ciudad.mp4" autoplay loop crossorigin="anonymous"></video>
+        
+      
+        <img id="poster1" src="poster1.jpg">
+       
+        <img id="poster3" src="poster3.jpg">
+        <img id="poster4" src="poster4.jpg">
+        <img id="conclusiones" src="conclusiones.jpg">
+      
+      </a-assets>
+
+      <!-- Museo  escalado y ubicado -->
+      <a-entity gltf-model="#museo" scale="2 1.5 2" position="0 0 0"></a-entity>
+
+      <!-- Cámara dentro del museo -->
+       <!-- Punto al que debe mirar al inicio -->
+          <a-entity id="inicioTarget" position="10.8 0.5 0"></a-entity>
+      
+      <a-camera
+          position="5 0.5 0"
+          look-at="#inicioTarget"
+          wasd-controls="acceleration: 60"
+          look-controls="pointerLockEnabled: false">
+
+         <a-cursor></a-cursor>
+       </a-camera>
+
+      <!-- Modelo 3D colocado dentro del museo -->
+      <a-plane position="10.8 0.15 0" rotation="0 -90 0"  width="5"  height="5"  material="src: #portada; side: double;"> </a-plane>
+      
+      <a-plane position="10.8  0.15 -5.5" rotation="0 -90 0"  width="5"  height="5"  material="src: #contexto; side: double;"> </a-plane>
+      <a-plane position="7  0.15 -9" rotation="0 0 0"  width="5"  height="5"  material="src: #copernico; side: double;"> </a-plane>
+      <a-plane position="1.5  0.15 -9" rotation="0 0 0"  width="5"  height="5"  material="src: #areas; side: double;"> </a-plane>
+    
+      
+      <a-plane position="-6 0.25 7" rotation="0 180 0"  width="3"  height="5"  material="src: #poster1; side: double;"> </a-plane>
+      
+      <a-plane position="-10 0.25 7" rotation="0 180 0"  width="3"  height="5"  material="src: #poster3; side: double;"> </a-plane>
+      <a-plane position="-14 0.25 7" rotation="0 180 0"  width="3"  height="5"  material="src: #poster4; side: double;"> </a-plane>
+     <a-plane position="1 0.15 7" rotation="0 180 0"  width="5"  height="5"  material="src: #conclusiones; side: double;"> </a-plane>
+
+      
+      <a-entity gltf-model="#pulgon" scale="0.09 0.09 0.09" position="-2 -3.05 -1.05" rotation="0 135 0"></a-entity>
+      <a-entity gltf-model="#pulgon" scale="0.09 0.09 0.09" position="-1.25 -3.05 -1.05" rotation="0 115 0"></a-entity>
+
+      <a-video src="#Soto" position="-14.55 0.5 -9.25" width="2.5" height="4.5"rotation="0 0 0"></a-video>
+      <a-video src="#Mandela" position="-11.75 0.5 -9.25" width="2.5" height="4.5"rotation="0 0 0"></a-video>
+      <a-video src="#Sinlamina" position="-9 0.5 -9.25" width="2.5" height="4.5"rotation="0 0 0"></a-video>
+
+      <a-video src="#ciudad" position="-5.5 0.5 -9.25" width="2.5" height="4.5"rotation="0 0 0"></a-video>
+
+    
+       <a-entity gltf-model="#sentinel3"
+          scale="0.09 0.09 0.09"
+          position="8 2.5 0"
+          rotation="0 180 0"
+          animation="property: position;
+                     to: 8 2.5 -7;
+                     dur: 6000;
+                     dir: alternate;
+                     loop: true;
+                     easing: easeInOutSine">
+        </a-entity>
+      <a-entity gltf-model="#sentinel2"
+          scale="0.09 0.09 0.09"
+          position="6 2.5 -7"
+          rotation="0 90 0"
+          animation="property: position;
+                     to: 6 2.5 0;
+                     dur: 6000;
+                     dir: alternate;
+                     loop: true;
+                     easing: easeInOutSine">
+        </a-entity>
+     
+
+      <!-- Luz ambiente -->
+      <a-entity light="type: ambient; intensity: 0.75"></a-entity>
+      <a-entity light="type: directional; intensity: 0.75" position="1 4 1"></a-entity>
+    </a-scene>
+
+
+  </body>
+</html>
